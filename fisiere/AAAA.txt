@@ -1,0 +1,6 @@
+
+Tema: 999
+Nota: 10.0
+Predata in saptamana: 4
+Deadline: 14
+Feedback: wow
