@@ -61,8 +61,38 @@ public class AppTest
     }
 
     @Test
-    public void testInvalidAddStudent() {
+    public void testInvalidStudentId() {
+        Student student = new Student(null, "nume", 10, "email@domeniu.com");
+        assertThrows(NullPointerException.class, () -> service.addStudent(student));
+    }
+
+    @Test
+    public void testInvalidStudentName_null() {
+        Student newStudent = new Student("1111", null, 999, "aa@yahoo.com");
+        assertThrows(ValidationException.class, () -> this.service.addStudent(newStudent));
+    }
+
+    @Test
+    public void testInvalidStudentName_empty() {
+        Student newStudent = new Student("1111", "", 999, "aa@yahoo.com");
+        assertThrows(ValidationException.class, () -> this.service.addStudent(newStudent));
+    }
+
+    @Test
+    public void testInvalidStudentGroup() {
         Student student = new Student("666", "nume", -10, "email@domeniu.com");
+        assertThrows(ValidationException.class, () -> service.addStudent(student));
+    }
+
+    @Test
+    public void testInvalidStudentEmail_null() {
+        Student student = new Student("666", "nume", 10, null);
+        assertThrows(ValidationException.class, () -> service.addStudent(student));
+    }
+
+    @Test
+    public void testInvalidStudentEmail_empty() {
+        Student student = new Student("666", "nume", 10, "");
         assertThrows(ValidationException.class, () -> service.addStudent(student));
     }
 }
