@@ -20,9 +20,8 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  * Unit test for simple App.
  */
-public class AppTest 
+public class AddStudentTest
 {
-
     private StudentXMLRepo studentFileRepository;
     private StudentValidator studentValidator;
     private Service service;
