@@ -1,7 +1,5 @@
 package ssvv.example;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -18,14 +16,6 @@ import ssvv.example.service.Service;
 import ssvv.example.validation.NotaValidator;
 import ssvv.example.validation.StudentValidator;
 import ssvv.example.validation.TemaValidator;
-
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -90,11 +80,8 @@ public class IncrementalIntegrationMockitoTest {
 
         Student resultStudent = this.service.addStudent(newStudent);
         Tema resultTema = this.service.addTema(newTema);
-        //todo: throws validation error, "studentul nu exista!"
-        //Double resultNota = service.addNota(newNota, "la");
 
         assertEquals(resultStudent.getID(), "1111");
         assertEquals(resultTema.getID(), "1");
-        //assertEquals(resultNota, Double.parseDouble("10"), 1);
     }
 }
